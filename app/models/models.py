@@ -16,6 +16,7 @@ class Event(Base):
 
     id = Column(Integer, primary_key=True, index=True)
     ruler_id = Column(Integer, ForeignKey("rulers.id"), nullable=False)
+    title = Column(String, nullable=False)
     date = Column(String, nullable=False)
     description = Column(Text, nullable=False)
 

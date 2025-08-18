@@ -4,7 +4,7 @@ from sqlalchemy import select, Sequence
 from app.models.models import Ruler
 from app.schemas.ruler import RulerCreate
 
-async def create(session: AsyncSession, data: RulerCreate) -> int:
+async def create(session: AsyncSession, data: RulerCreate):
     ruler = Ruler(**data.model_dump())
     session.add(ruler)
     await session.commit()
