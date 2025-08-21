@@ -15,3 +15,8 @@ async def read(session: AsyncSession) -> Sequence[Ruler]:
 
     result = await session.execute(select(Ruler))
     return result.scalars().all()
+
+async def read_one(session: AsyncSession, ruler_id: int) -> Ruler:
+    process = select(Ruler).where(Ruler.id == ruler_id)
+    result = await session.execute(process)
+    return result.scalars().first()
